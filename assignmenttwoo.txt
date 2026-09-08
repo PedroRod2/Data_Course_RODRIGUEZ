@@ -1,0 +1,104 @@
+csv_files<- list.files( 
+  path = "Data",
+  pattern = "\\.csv$",
+  full.names = TRUE
+) 
+
+csv_files
+
+
+#1.Read 'wingspan_vs_mass.csv' using relative path and 
+##save as an object
+#2.what type of obj is this?
+#3. how many rows and columns in the file?
+
+#Relative Path
+Data/wingspan_vs_mass.csv
+Read.csv('Data/winspan_vs_mass.csv')
+
+#save as object
+filepath = 'Data/winspan_vs_mass.csv'
+hahaha= read.csv(filepath)
+str(hahaha)  #what kind of file it is
+class(hahaha)  #what kind of file it is
+
+#how many rows and columns
+nrow(hahaha)
+ncol(hahaha)
+#other function for this is dimension
+dim(hahaha) #[row, col]
+
+#Read the top of the file
+head(hahaha)
+#Read the bottom of the file
+tail(hahaha)
+
+#Pop up the columns and rows file
+View(hahaha)
+
+#list of files
+list.file('Data/')
+
+#See what is inside each folder
+list.files('Data/', recursive = F)
+list.files('Data/', recursive = T)
+
+#list all csv files
+list.files('Data/', pattern = 'csv')
+
+list.files('Data/', pattern = '.csv$')
+list.files('Data/',pattern = '^s')
+
+#lets you make your own function
+my_fun = function(x, y){
+  out = x + y 
+  print(out)
+}
+
+source('my_fun')
+
+##loop
+i like apple
+i like orange
+i like banana
+i like pear
+
+fruit = c('apple', 'orange', 'banana', 'pear')
+
+for (variable in fruit) {
+  out = paste ('i like', variable)
+  print(out)
+} 
+
+##try to write a for loop
+song1
+song2
+song3
+song4
+music = c('song1', 'song2', 'song3', 'song4')
+for (variable in music) {
+  print(variable)
+}
+
+While loop 
+  
+
+my_fun(1,2)
+my_fun(33,13748)
+
+#1. create a data frame contains your favorite fruits (at least 3)
+#and their calories
+#3.After crearting the df, add a new col called calories_100'
+# the value = original cal + 100
+# 4. write a loop to print out 'calories_100'
+#5. save the data frame to local 
+
+
+
+
+df <-read.csv("Data/wingspan_vs_mass.csv")
+#2 What type of object is this?
+class(df)
+#3 How many rows and columns?
+
+dim(df)
