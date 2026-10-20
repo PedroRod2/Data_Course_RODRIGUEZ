@@ -1,0 +1,15 @@
+Biol3100
+Pedro Rodriguez
+
+Final Project idea
+
+1-My final project will examine whether different treatments influence wound healing and scar formation in axolotls. I will analyze wound size measurements collected over time and use graphical and statistical methods to compare healing rates among treatment groups. The goal is to identify treatments that promote faster healing and reduce scarring.
+
+2- The data will come from published scientific studies on axolotl wound healing and regeneration. Potential sources include peer-reviewed journals such as PLOS ONE and other biological research databases. The dataset will likely contain variables such as treatment group, days after injury, wound size, and percentage of wound closure. Each row of data would represent a measurement collected from an individual axolotl at a specific time point.
+
+https://journals.plos.org/plosone/article/figures?id=10.1371/journal.pone.0032875
+
+
+3- A fictitious dataset was created and saved as a CSV file to demonstrate the expected structure of the final project data.
+
+4- A ggplot figure was generated using the fictitious dataset. The plot demonstrates an expected outcome in which the treatment group exhibits faster wound healing than the control group.
