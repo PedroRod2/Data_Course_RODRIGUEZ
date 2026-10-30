@@ -145,4 +145,62 @@ df <-read.csv("Data/wingspan_vs_mass.csv")
 class(df)
 #3 How many rows and columns?
 
-dim(df)
+View(penguins)
+
+## read 'wide_income_rent.csv' using relative path
+
+
+df = read.csv('Data/wide_income_rent.csv')
+View(df)
+df = data.frame(
+  id = c(1,2,3,4,5),
+  height = c(120, 130, 145, 155, 170),
+  weight = c(34, 55, 70, 80, 100),
+  score = c(22, 33, 44, 55, 66)
+)
+
+library(tidyverse)
+df_long = df %>%
+  pivot_longer(
+    cols = c(height, weight),
+    names_to = "type",
+    values_to = "measurement"
+  )
+
+View(df_long)
+
+df_long %>%
+  pivot_wider(names_from = type,
+              values_from = measurement)
+View(df_long)
+
+scores <- data.frame(
+  student = c("A", "B", "C"),
+  math = c(90, 85, 95),
+  english = c(88, 80, 92)
+  
+)
+
+View(scores)
+
+healing <- data.frame(
+  axolotl = c("A1", "A2", "A3"),
+  day_0 = c(25, 30, 28),
+  day7 = c(18, 22, 20),
+  day14 = c(10, 12, 11),
+  day21 = c(3, 5, 4)
+)
+
+pigment <- data.frame(
+  axolotl = c("A1", "A2", "A3"),
+  day_0 = c(10, 15, 27),
+  day7 = c(30, 35, 60),
+  day14 = c(60, 55, 79),
+  day21 = c(85, 80, 80)
+)
+
+full_join(healing, pigment)
+
+
+##Practice pivot_longer and pivot_wider
+## make 'wide_income_rent.csv' tidy 
