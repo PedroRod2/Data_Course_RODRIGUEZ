@@ -1,6 +1,6 @@
 library(tidyverse)
 
-unicef <- read_csv("Exam_2/unicef-u5mr.csv")
+unicef <- read_csv("unicef-u5mr.csv")
 names(unicef)
 
 glimpse(unicef)
