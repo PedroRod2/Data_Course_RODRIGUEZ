@@ -14,7 +14,7 @@ dat_long <- dat_long %>%
   mutate(
     Type = case_when(
       `Sample ID` %in% c("Soil_1", "Soil_2") ~ "Soil",
-      True ~ "Water"
+      TRUE ~ "Water"
     )
   )
 View(dat_long)
@@ -70,8 +70,8 @@ ggsave(
 
 library(gganimate)
 anim_data <- dat_long %>%
+  filter(Substrate == "Itaconic Acid") %>%
   group_by(
-    Substrate,
     Dilution,
     `Sample ID`,
     Time
@@ -87,7 +87,7 @@ anim_plot <- ggplot(
     x = Time,
     y = Mean_Absorbance,
     color = `Sample ID`,
-    group = `Sample ID`
+    group = interaction(`Sample ID`, Dilution)
   )
 ) +
   geom_line() +
@@ -97,10 +97,7 @@ anim_plot <- ggplot(
     breaks = c(24, 48, 144)
   ) +
   theme_bw() +
-  transition_states(Substrate) +
-  labs(
-    title = "Substrate: {closest_state}"
-  )
+ transition_reveal(Time)
 
 animate(anim_plot)
 View(anim_data)
