@@ -42,3 +42,93 @@ ____________
 + That means I want to see, in your html report, your process of model evaluation and selection. Here's an [example](https://gzahn.github.io/data-course/Repository/Assignments/Assignment_9/example.html){target="_blank"}
 + Upload your **self-contained** R project, including knitted HTML report, to GitHub in *your* Assignment_9 directory
 
+
+## Load Packages and Data
+
+```{r}
+library(tidyverse)
+library(knitr)
+
+grad <- read_csv("Data/GradSchool_Admissions.csv")
+```
+## Inspect the Data
+
+```{r}
+head(grad)
+
+View(grad)
+
+summary(grad)
+```
+## Missing Values
+
+```{r}
+colSums(is.na(grad))
+```
+
+## Prepare Variables
+```{r}
+grad$rank <- as.factor(grad$rank)
+```
+
+## Figure 1: Admissions
+
+```{r}
+ggplot(grad, aes(x = factor(admit))) +
+  geom_bar()
+```
+## Figure 2: GPA by Admission Status
+
+```{r}
+ggplot(grad, aes(
+  x = factor(admit),
+  y = gpa
+)) +
+  geom_boxplot()
+```
+## Figure 3: GRE by Admission Status
+
+```{r}
+ggplot(grad, aes(
+  x = factor(admit),
+  y = gre
+)) +
+  geom_boxplot()
+```
+## Figure 4: Admission by Rank
+
+```{r}
+ggplot(grad, aes(
+  x = rank,
+  fill = factor(admit)
+)) +
+  geom_bar(position = "fill")
+```
+
+## Logistic Regression Model 
+
+```{r}
+model1 <- glm(
+  admit ~ gre + gpa + rank,
+  data = grad,
+  family = "binomial"
+)
+```
+## Model Summary
+
+```{r}
+summary(model1)
+```
+## Odds Ratios
+
+```{r}
+exp(coef(model1))
+```
+## Conclusions
+
+The data were used to explore predictors of graduate school admission. There were no missing values in the dataset. The exploratory figures suggested that students with higher GPA and GRE scores were more likely to be admitted. Admission rates also differed across school ranks. 
+
+A logistic regression model was fit using GRE, GPA, and school rank as predictors. The model results showed that GRE score, GPA, and school rank were significant predictors of admission. Students with higher GRE scores and GPAs were more likely to be admitted. Students from lower-ranked schools had lower odds of admission compared to students from rank 1 schools. 
+
+Overall, GRE, GPA, and school rank were all important predictors of graduate school admission. 
+
