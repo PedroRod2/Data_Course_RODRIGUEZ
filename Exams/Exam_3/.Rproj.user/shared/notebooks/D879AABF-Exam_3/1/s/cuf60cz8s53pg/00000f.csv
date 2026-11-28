@@ -1,0 +1,5 @@
+"0","ggplot(oils_tidy, aes(x = YearsSinceBurn, y = Concentration)) +"
+"0","  geom_smooth(se = TRUE, color = ""blue"") +"
+"0","  facet_wrap(~ ChemicalID, scales = ""free_y"") +"
+"0","  labs(x = ""YearsSinceBurn"", y = ""Concentration"") +"
+"0","  theme_bw()"

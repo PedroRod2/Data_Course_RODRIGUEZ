@@ -1,0 +1,6 @@
+"0","ggplot(sal_tidy %>% filter(!is.na(Tier)),"
+"0","       aes(x = Rank, y = Salary, fill = Rank)) +"
+"0","  geom_boxplot() +"
+"0","  facet_wrap(~ Tier) +"
+"0","  labs(x = ""Rank"", y = ""Salary"") +"
+"0","  theme_bw()"

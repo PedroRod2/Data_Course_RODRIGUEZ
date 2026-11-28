@@ -1,0 +1,3 @@
+"0","sal_tidy %>%"
+"0","  select(State, Tier, Rank, Salary) %>%"
+"0","  head(12)"
